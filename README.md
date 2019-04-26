@@ -1,2 +1,2 @@
-# task_manager
-Simple task manager application
+# Task Manager
+Simple task manager application with Node
