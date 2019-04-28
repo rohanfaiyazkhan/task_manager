@@ -44,6 +44,17 @@ userSchema.methods.generateAuthToken = async function() {
     return jwt.sign({ _id: this._id.toString() }, 'darkmistynight')
 }
 
+userSchema.methods.toJSON = function(){
+    try{
+        const user = this.toObject()
+        delete user.password
+        delete user.tokens
+        return user
+    }catch(e){
+        throw e
+    }
+}
+
 userSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({ email })
     if(!user){

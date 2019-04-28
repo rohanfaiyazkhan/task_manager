@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
   "keywords": [],
@@ -16,7 +16,7 @@
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.2.3",
-    "mongoose": "^5.5.2",
+    "mongoose": "^5.5.4",
     "validator": "^10.11.0"
   },
   "devDependencies": {
