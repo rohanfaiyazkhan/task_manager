@@ -3,6 +3,7 @@ const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const Task = require('../models/task')
+
 const userSchema  = new mongoose.Schema({ 
     name: {type: String, required: true, trim: true}, 
     age: 
@@ -38,7 +39,7 @@ const userSchema  = new mongoose.Schema({
             required: true
         }
     }]
-})
+}, { timestammps: true })
 
 userSchema.methods.generateAuthToken = async function() {
     return jwt.sign({ _id: this._id.toString() }, 'darkmistynight')
