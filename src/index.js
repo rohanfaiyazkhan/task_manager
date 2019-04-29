@@ -56,3 +56,22 @@ app.get('/users', (req, res) => {
         res.status(500).send()
     })
 })
+
+app.get('/task', (req, res) => {
+    Task.find({}).then((result) => {
+        res.send(result)
+    }).catch((e) => {
+        res.status(500).send()
+    })
+})
+
+app.get('/task/:id', (req, res) => {
+    Task.findById(req.params.id).then((task) => {
+        if(!task){
+            return res.status(404).send()
+        }
+        res.send(task)
+    }).catch(e => {
+        res.status(500).send()
+    })
+})
