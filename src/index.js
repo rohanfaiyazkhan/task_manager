@@ -3,16 +3,25 @@ const express = require('express')
 require('./db/mongoose')
 const User = require('./models/user')
 const Task = require('./models/task')
+const userRouter = require('./routers/users')
+const taskRouter = require('./routers/tasks')
 
 const app = express()
 const port = process.env.port || 3000
 
+// app.use((req, res, next) => {
+//     return res.status(503).send('Site under maintainence')
+// })
+
 app.use(express.json())
+app.use(userRouter)
+app.use(taskRouter)
 
 app.listen(port, ()=>{
     console.log(`Listening on port ${port}`)
 })
 
+<<<<<<< HEAD
 app.post('/users', (req, res) => {
     const user = new User(req.body)
     user.save().then((user) => {
@@ -75,3 +84,5 @@ app.get('/task/:id', (req, res) => {
         res.status(500).send()
     })
 })
+=======
+>>>>>>> 3836d0471acb977e8223c243fbc4725b9bd91c8d
